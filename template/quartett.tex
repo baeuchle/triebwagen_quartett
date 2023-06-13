@@ -1,0 +1,118 @@
+\documentclass[a4paper]{article}
+
+\usepackage[boxed,rowmode]{ticket}
+\usepackage[margin=10mm]{geometry}
+\usepackage{graphicx}
+\usepackage{pst-all}
+\usepackage{fontspec,newunicodechar}
+\newfontface{\mysymbols}{Symbola}
+\newunicodechar{⏚}{{\mysymbols⏚}}
+\newunicodechar{①}{{\mysymbols①}}
+\newunicodechar{②}{{\mysymbols②}}
+\newunicodechar{③}{{\mysymbols③}}
+\newunicodechar{↗}{{\mysymbols↗}}
+\newunicodechar{⊕}{{\mysymbols⊕}}
+\newunicodechar{⊖}{{\mysymbols⊖}}
+
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\setlength{\unitlength}{1mm}
+\psset{unit=1mm}
+\ticketNumbers{3}{3}
+\ticketSize{60}{90}
+\ticketDistance{5}{5}
+
+\renewcommand{\ticketdefault}{}
+\newcommand{\quartettkarte}[5]{\ticket{%
+  \begin{pspicture}(0,0)(60,90)
+  \psframe[framearc=.1,fillstyle=solid,fillcolor=gray](3,3)(57,87)%
+  \psframe[linestyle=none,fillstyle=solid,fillcolor=white](41,77)(56,86)%
+  \rput[tr](55,85){\color{red}\textbf{\Huge #1}}%
+  \psframe[linestyle=none,fillstyle=solid,fillcolor=white](4,77)(39,86)%
+  \rput(21.5,81.5){\textbf{\large #2}}
+  \rput[tl](5,76){\includegraphics[width=50mm,height=30mm]{#3}}
+  {% data
+    \psset{fillstyle=solid}%
+    \psset{fillcolor=white}%
+    \psset{linestyle=none}%
+    \rput(4,40){
+      \psframe[fillstyle=solid,fillcolor=white](0,0)(52,5)
+      \rput[tl](1,4){Sitzplätze}%
+      \rput[tr](51,4){#4}%
+    }
+    \rput(4,34){
+      \psframe[fillstyle=solid,fillcolor=white](0,0)(52,5)
+      \rput[tl](1,4){Länge}
+      \rput[tr](51,4){#5 m}
+    }
+    \rput(4,28){
+      \psframe[fillstyle=solid,fillcolor=white](0,0)(52,5)
+      \rput[tl](1,4){Eigenschaft 3}
+      \rput[tr](51,4){7 kW}
+    }
+    \rput(4,22){
+      \psframe[fillstyle=solid,fillcolor=white](0,0)(52,5)
+      \rput[tl](1,4){Eigenschaft 4}
+      \rput[tr](51,4){8 Achsen}
+    }
+    \rput(4,16){
+      \psframe[fillstyle=solid,fillcolor=white](0,0)(52,5)
+      \rput[tl](1,4){Eigenschaft 5}
+      \rput[tr](51,4){8 Achsen}
+    }
+    \rput(4,10){
+      \psframe[fillstyle=solid,fillcolor=white](0,0)(52,5)
+      \rput[tl](1,4){Eigenschaft 6}
+      \rput[tr](51,4){8 Achsen}
+    }
+    \rput(4,4){
+      \psframe[fillstyle=solid,fillcolor=white](0,0)(52,5)
+      \rput[tl](1,4){Eigenschaft 7}
+      \rput[tr](51,4){8 Achsen}
+    }
+  }
+  \end{pspicture}
+}}
+\newcommand{\rueckseite}{\ticket{%
+  RÜCK RÜCK RÜCK
+}}
+
+\begin{document}
+\quartettkarte{A1}{VT 0633}{../pictures/vt0633.jpg}{181}{58,6}
+\quartettkarte{A2}{VT 0648}{../pictures/vt0648.jpg}{123}{89,8}
+%\quartettkarte{A2}{gaG}
+%\quartettkarte{A3}{gaF}
+%\quartettkarte{A4}{gaE}
+%\quartettkarte{B1}{gaA}
+%\quartettkarte{B2}{gaB}
+%\quartettkarte{B3}{gaC}
+%\quartettkarte{B4}{gaD}
+%\quartettkarte{C1}{giE}
+%\quartettkarte{C2}{giF}
+%\quartettkarte{C3}{giG}
+%\quartettkarte{C4}{giH}
+%\quartettkarte{D1}{giD}
+%\quartettkarte{D2}{giC}
+%\quartettkarte{D3}{giB}
+%\quartettkarte{D4}{giB}
+%\quartettkarte{E1}{giD}
+%\quartettkarte{E2}{giC}
+%\quartettkarte{E3}{giB}
+%\quartettkarte{E4}{giB}
+%\quartettkarte{F1}{giD}
+%\quartettkarte{F2}{giC}
+%\quartettkarte{F3}{giB}
+%\quartettkarte{F4}{giB}
+%\quartettkarte{G1}{giD}
+%\quartettkarte{G2}{giC}
+%\quartettkarte{G3}{giB}
+%\quartettkarte{G4}{giB}
+%\quartettkarte{H1}{giD}
+%\quartettkarte{H2}{giC}
+%\quartettkarte{H3}{giB}
+%\quartettkarte{H4}{giB}
+%\backside
+%\newcounter{numcards}
+%\setcounter{numcards}{0}
+%\whiledo{\thenumcards<32}{\stepcounter{numcards}%
+%\rueckseite}
+\end{document}
