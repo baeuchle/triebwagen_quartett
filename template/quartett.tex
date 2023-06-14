@@ -1,18 +1,19 @@
 \documentclass[a4paper]{article}
 
-\usepackage[boxed,rowmode]{ticket}
+\usepackage[rowmode]{ticket}
 \usepackage[margin=10mm]{geometry}
-\usepackage{graphicx}
-\usepackage{pst-all}
+\usepackage{graphicx,pst-all}
 \usepackage{fontspec,newunicodechar}
-\newfontface{\mysymbols}{Symbola}
-\newunicodechar{⏚}{{\mysymbols⏚}}
-\newunicodechar{①}{{\mysymbols①}}
-\newunicodechar{②}{{\mysymbols②}}
-\newunicodechar{③}{{\mysymbols③}}
-\newunicodechar{↗}{{\mysymbols↗}}
-\newunicodechar{⊕}{{\mysymbols⊕}}
-\newunicodechar{⊖}{{\mysymbols⊖}}
+\setmainfont[Path=../fonts/,UprightFont=*.otf,BoldFont=*-Bold.otf,ItalicFont=*-Italic.otf,SmallCapsFont=*-Bold.otf]{D-DIN}
+\setsansfont[Path=../fonts/,UprightFont=*.otf,BoldFont=*-Bold.otf]{D-DINCondensed}
+% \newfontface{\mysymbols}{Symbola}
+% \newunicodechar{⏚}{{\mysymbols⏚}}
+% \newunicodechar{①}{{\mysymbols①}}
+% \newunicodechar{②}{{\mysymbols②}}
+% \newunicodechar{③}{{\mysymbols③}}
+% \newunicodechar{↗}{{\mysymbols↗}}
+% \newunicodechar{⊕}{{\mysymbols⊕}}
+% \newunicodechar{⊖}{{\mysymbols⊖}}
 
 \definecolor{darkgreen}{rgb}{0,0.5,0}
 \setlength{\unitlength}{1mm}
@@ -21,54 +22,74 @@
 \ticketSize{60}{90}
 \ticketDistance{5}{5}
 
+\newcommand{\propertyline}[2]{%
+  \psframe(0,0)(52,5)
+  \rput[tl](1,4){\textsf{#1\phantom{Q}}}%
+  \rput[tr](51,4){\phantom{Q}#2}%
+  % the Phantom Qs fix line height alignment issues; Q extends to
+  % uppermost and lowermost vertical positions.
+}
+
+\newcommand{\others}[2]{%
+  \psframe[fillcolor=#2](0,0)(12,-2)
+  \rput[tc](6,-1){\tiny\phantom{Q}#1\phantom{Q}}
+}
+
 \renewcommand{\ticketdefault}{}
-\newcommand{\quartettkarte}[5]{\ticket{%
+\newcommand{\quartettkarte}[9]{%
+  \def\tempNummer{#1}%
+  \def\tempName{#2}%
+  \def\tempDesc{#3}%
+  \def\tempBild{\includegraphics[width=50mm,height=30mm]{../pictures/#4}}%
+  \def\tempSitzplaetze{#5}%
+  \def\tempLaenge{#6}%
+  \def\tempTeile{#7}%
+  \def\tempAchsen{#8}%
+  \def\tempLeistung{#9}%
+  \kartecontinued%
+}
+\newcommand{\kartecontinued}[7]{\ticket{%
+  \def\tempVmax{#1}%
+  \def\tempMasse{#2}%
+  \def\tempEins{#3}%
+  \def\tempZwei{#4}%
+  \def\tempDrei{#5}%
+  \def\tempVier{#6}%
   \begin{pspicture}(0,0)(60,90)
-  \psframe[framearc=.1,fillstyle=solid,fillcolor=gray](3,3)(57,87)%
-  \psframe[linestyle=none,fillstyle=solid,fillcolor=white](41,77)(56,86)%
-  \rput[tr](55,85){\color{red}\textbf{\Huge #1}}%
-  \psframe[linestyle=none,fillstyle=solid,fillcolor=white](4,77)(39,86)%
-  \rput(21.5,81.5){\textbf{\large #2}}
-  \rput[tl](5,76){\includegraphics[width=50mm,height=30mm]{#3}}
-  {% data
-    \psset{fillstyle=solid}%
-    \psset{fillcolor=white}%
-    \psset{linestyle=none}%
-    \rput(4,40){
-      \psframe[fillstyle=solid,fillcolor=white](0,0)(52,5)
-      \rput[tl](1,4){Sitzplätze}%
-      \rput[tr](51,4){#4}%
+    \psset{cornersize=absolute}
+    % cut frame for the cards:
+    \psframe[linewidth=.1pt,linearc=6,fillstyle=none,linestyle=dotted](0,0)(60,90)
+    % printed card frame
+    \psset{fillstyle=solid}
+    \psframe[linearc=3,fillcolor=gray](3,3)(57,87)
+    % headline:
+    \psset{fillcolor=white}
+    \psset{linestyle=none}
+    % only left upper corner is rounded:
+    \psframe[linearc=2](4,77)(43,86)
+    \psframe(4,77)(7,80)
+    \psframe(39,77)(43,86)
+    \rput(23.5,81.5){\textbf{\large \tempName}}
+    % only right upper corner is rounded;
+    \psframe[linearc=2](44,77)(56,86)
+    \psframe(44,77)(47,86)
+    \psframe(53,77)(56,80)
+    \rput[tr](55,84.5){\color{red}\textbf{\Huge \tempNummer}}
+    \rput[tl](5,76){\tempBild}
+    \rput[tc](30,44){\textit{\color{white}{\tempDesc}}}
+    {% data
+      \rput(4,36){\propertyline{Sitzplätze}{\tempSitzplaetze}}
+      \rput(4,30){\propertyline{Länge}{\tempLaenge{} m}}
+      \rput(4,24){\propertyline{Teile/Achsen}{\tempTeile/\tempAchsen}}
+      \rput(4,18){\propertyline{Leistung}{\tempLeistung{} MW}}
+      \rput(4,12){\propertyline{Höchstgeschwindigkeit}{\tempVmax{} km/h}}
+      \rput(4,6){ \propertyline{Leermasse}{\tempMasse{} t}}
     }
-    \rput(4,34){
-      \psframe[fillstyle=solid,fillcolor=white](0,0)(52,5)
-      \rput[tl](1,4){Länge}
-      \rput[tr](51,4){#5 m}
-    }
-    \rput(4,28){
-      \psframe[fillstyle=solid,fillcolor=white](0,0)(52,5)
-      \rput[tl](1,4){Eigenschaft 3}
-      \rput[tr](51,4){7 kW}
-    }
-    \rput(4,22){
-      \psframe[fillstyle=solid,fillcolor=white](0,0)(52,5)
-      \rput[tl](1,4){Eigenschaft 4}
-      \rput[tr](51,4){8 Achsen}
-    }
-    \rput(4,16){
-      \psframe[fillstyle=solid,fillcolor=white](0,0)(52,5)
-      \rput[tl](1,4){Eigenschaft 5}
-      \rput[tr](51,4){8 Achsen}
-    }
-    \rput(4,10){
-      \psframe[fillstyle=solid,fillcolor=white](0,0)(52,5)
-      \rput[tl](1,4){Eigenschaft 6}
-      \rput[tr](51,4){8 Achsen}
-    }
-    \rput(4,4){
-      \psframe[fillstyle=solid,fillcolor=white](0,0)(52,5)
-      \rput[tl](1,4){Eigenschaft 7}
-      \rput[tr](51,4){8 Achsen}
-    }
+  \rput[tl](6,6){% other cards from same letter
+    \rput[tl](00,0){\others{\tempEins}{yellow}}
+    \rput[tl](12,0){\others{\tempZwei}{green}}
+    \rput[tl](24,0){\others{\tempDrei}{cyan}}
+    \rput[tl](36,0){\others{\tempVier}{lime}}
   }
   \end{pspicture}
 }}
@@ -77,8 +98,37 @@
 }}
 
 \begin{document}
-\quartettkarte{A1}{VT 0633}{../pictures/vt0633.jpg}{181}{58,6}
-\quartettkarte{A2}{VT 0648}{../pictures/vt0648.jpg}{123}{89,8}
+\quartettkarte{A1}{VT 0633}{PESA LINK}{vt0633.jpg}%
+    {???}{57,1}{3}{8}{1,13}{140}{???}%
+    {PESA}{Desiro}{TALENT 1}{Itino}{}
+\quartettkarte{A2}{VT 0642}{Desiro Classic}{vt0642.jpg}%
+    {110}{41,7}{2}{6}{0,72}{120}{69}%
+    {PESA}{Desiro}{TALENT 1}{Itino}{}
+\quartettkarte{A3}{VT 0643}{TALENT 1}{vt0643.jpg}%
+    {137}{48,4}{3}{8}{0,63}{120}{72}%
+    {PESA}{Desiro}{TALENT 1}{Itino}{}
+\quartettkarte{B2}{VT 0648}{Coradia LINT 41}{vt0648.jpg}%
+    {120}{41,8}{2}{6}{0,80}{120}{63,5}%
+    {LINT 27}{LINT 41}{iLINT 54}{LINT 81}{}
+\quartettkarte{D2}{ET 0452}{RegioTram Kassel}{et0452.jpg}%
+    {90}{37,48}{3}{8}{0,60}{100}{59,8}%
+    {0423}{RegioTram}{0426}{0430}{}
+\quartettkarte{F1}{ET 0428}{FLIRT 1 (4-tlg)}{et0428.jpg}
+    {219}{74,3}{4}{10}{2,00}{160}{120}%
+    {FLIRT 1}{Desiro ML}{Coradia Continental}{TALENT 2}{}
+\quartettkarte{G3}{ET 5411}{ICE-T7}{et5411.jpg}
+    {376}{185}{7}{28}{4,00}{230}{386}%
+    {Neuer ICE3}{ICE 3 neo}{ICE-T7}{RegioSwinger}{}
+\quartettkarte{H1}{ET 5401}{ICE 1 LDV}{et5401.jpg}
+    {503}{278,7}{9}{44}{9,60}{280}{627}%
+    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 4$^{\rm 13}$}{}
+\quartettkarte{H4}{ET 0412}{ICE 4$^{\rm 13}$}{et0412.jpg}
+    {918}{374}{13}{52}{11,55}{265}{731}%
+    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 4$^{\rm 13}$}{}
+%\quartettkarte{H1}{ICE 1 LDV}{et5411.jpg}{376}{185}{7}{28}{4,00}{280}{5401}{386}{a}{b}{c}{d}{e}
+%\quartettkarte{H2}{ICE 2}{et5411.jpg}{376}{185}{7}{28}{4,00}{280}{5402}{386}{a}{b}{c}{d}{e}
+%\quartettkarte{H3}{ICE 3}{et5411.jpg}{376}{185}{7}{28}{4,00}{330}{5403}{386}{a}{b}{c}{d}{e}
+%\quartettkarte{H4}{ICE 4$^{\rm 13}$}{et5411.jpg}{376}{185}{7}{28}{4,00}{265}{Tz 9451..9499}{386}{a}{b}{c}{d}{e}
 %\quartettkarte{A2}{gaG}
 %\quartettkarte{A3}{gaF}
 %\quartettkarte{A4}{gaE}
