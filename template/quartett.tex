@@ -1,19 +1,25 @@
 \documentclass[a4paper]{article}
 
 \usepackage[rowmode]{ticket}
-\usepackage[margin=10mm]{geometry}
+\usepackage[margin=5mm]{geometry}
 \usepackage{graphicx,pst-all}
 \usepackage{fontspec,newunicodechar}
-\setmainfont[Path=../fonts/,UprightFont=*.otf,BoldFont=*-Bold.otf,ItalicFont=*-Italic.otf,SmallCapsFont=*-Bold.otf]{D-DIN}
-\setsansfont[Path=../fonts/,UprightFont=*.otf,BoldFont=*-Bold.otf]{D-DINCondensed}
-% \newfontface{\mysymbols}{Symbola}
-% \newunicodechar{⏚}{{\mysymbols⏚}}
-% \newunicodechar{①}{{\mysymbols①}}
-% \newunicodechar{②}{{\mysymbols②}}
-% \newunicodechar{③}{{\mysymbols③}}
-% \newunicodechar{↗}{{\mysymbols↗}}
-% \newunicodechar{⊕}{{\mysymbols⊕}}
-% \newunicodechar{⊖}{{\mysymbols⊖}}
+\usepackage{enumitem}
+\setlist{nosep,font=\textbf,align=left, leftmargin=1em,
+labelindent=\parindent, listparindent=\parindent, labelwidth=0pt,
+labelsep=1em, itemindent=!}
+\setmainfont[Path=../fonts/,UprightFont=*.otf,BoldItalicFont=*Exp-Italic.otf,BoldFont=*-Bold.otf,ItalicFont=*-Italic.otf,SmallCapsFont=*-Bold.otf]{D-DIN}
+\setsansfont[Path=../fonts/,UprightFont=*.otf,BoldItalicFont=*-Bold.otf,BoldFont=*-Bold.otf]{D-DINCondensed}
+\newunicodechar{⁰}{{${}^{\it 0}$}}
+\newunicodechar{¹}{{${}^{\it 1}$}}
+\newunicodechar{²}{{${}^{\it 2}$}}
+\newunicodechar{³}{{${}^{\it 3}$}}
+\newunicodechar{⁴}{{${}^{\it 4}$}}
+\newunicodechar{⁵}{{${}^{\it 5}$}}
+\newunicodechar{⁶}{{${}^{\it 6}$}}
+\newunicodechar{⁷}{{${}^{\it 7}$}}
+\newunicodechar{⁸}{{${}^{\it 8}$}}
+\newunicodechar{⁹}{{${}^{\it 9}$}}
 
 \definecolor{darkgreen}{rgb}{0,0.5,0}
 \setlength{\unitlength}{1mm}
@@ -36,6 +42,46 @@
 }
 
 \renewcommand{\ticketdefault}{}
+
+\newcommand{\titleticket}{\ticket{%
+  \begin{pspicture}(0,0)(60,90)
+    \psset{cornersize=absolute}
+    % cut frame for the cards:
+    \psframe[linewidth=.1pt,linearc=6,fillstyle=none,linestyle=dotted](0,0)(60,90)
+    % printed card frame
+    \psboxfill{\includegraphics[width=54mm,height=84mm]{../pictures/titel.jpg}}
+    \psframe[linearc=3,fillstyle=boxfill,fillsize={(3mm,3mm)(54mm,84mm)}](3,3)(57,87)
+    \psframe[linearc=2,fillstyle=none,linestyle=solid,linecolor=white,linewidth=.3mm](4,4)(56,86)
+    \rput[t](30,80){\Huge \color{white}\textbf{Triebwagen-}}
+    \rput[t](30,20){\Huge \color{white}\textbf{quartett}}
+  \end{pspicture}
+}}
+
+\newcommand{\copyrightticket}{\ticket{%
+  \begin{pspicture}(0,0)(60,90)
+    \psset{cornersize=absolute}
+    \psset{fillstyle=none}
+    % cut frame for the cards:
+    \psframe[linewidth=.1pt,linearc=6,linestyle=dotted](0,0)(60,90)
+    % printed card frame
+    \psframe[linearc=3](3,3)(57,87)
+    \rput[tc](30,84){\textbf{Urheberrecht}}
+    \rput[tr](54,84){\includegraphics[width=10mm]{../by-sa.eps}}
+    \rput[tl](4,80){
+    \begin{minipage}{50mm}
+      \tiny
+      Dieses Quartett ist © CC BY-SA 4.0 Bjørn Bäuchle.\\
+      Die folgenden Bilder stehen unter abweichenden Lizenzen:
+      \begin{itemize}
+        \input{copyrights}
+      \end{itemize}
+      Detaillierte Quelleninformationen und alle Quelltexte sind unter
+      https://github.com/baeuchle/triebwagen\_quartett/ verfügbar.
+    \end{minipage}
+  }
+  \end{pspicture}
+}}
+
 \newcommand{\quartettkarte}[9]{%
   \def\tempNummer{#1}%
   \def\tempName{#2}%
@@ -98,68 +144,112 @@
 }}
 
 \begin{document}
-\quartettkarte{A1}{VT 0633}{PESA LINK}{vt0633.jpg}%
-    {???}{57,1}{3}{8}{1,13}{140}{???}%
+\titleticket
+\copyrightticket
+%%%%%%%%%%%%%%%%%%%%%%%%
+\quartettkarte{A1}{PESA LINK}{\textbf{633⁰+933+633⁵}, 632⁰+932⁰}{vt0633.jpg}%
+    {106}{57,1}{3}{8}{1,13}{140}{120}%
     {PESA}{Desiro}{TALENT 1}{Itino}{}
-\quartettkarte{A2}{VT 0642}{Desiro Classic}{vt0642.jpg}%
+\quartettkarte{A2}{Desiro Classic}{VT 0642}{vt0642.jpg}%
     {110}{41,7}{2}{6}{0,72}{120}{69}%
     {PESA}{Desiro}{TALENT 1}{Itino}{}
-\quartettkarte{A3}{VT 0643}{TALENT 1}{vt0643.jpg}%
+\quartettkarte{A3}{TALENT 1}{VT 0643}{vt0643.jpg}%
     {137}{48,4}{3}{8}{0,63}{120}{72}%
     {PESA}{Desiro}{TALENT 1}{Itino}{}
-\quartettkarte{B2}{VT 0648}{Coradia LINT 41}{vt0648.jpg}%
+\quartettkarte{A4}{Itino}{VT 0615}{vt0615.jpg}%
+    {119}{39,5}{2}{6}{1,14}{140}{62}%
+    {PESA}{Desiro}{TALENT 1}{Itino}{}%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\quartettkarte{B1}{LINT 27}{VT 0640}{vt0640.jpg}%
+    {52}{27,3}{1}{4}{0,32}{120}{41}%
+    {LINT 27}{LINT 41}{iLINT 54}{LINT 81}{}
+\quartettkarte{B2}{LINT 41}{VT 0648}{vt0648.jpg}%
     {120}{41,8}{2}{6}{0,80}{120}{63,5}%
     {LINT 27}{LINT 41}{iLINT 54}{LINT 81}{}
-\quartettkarte{D2}{ET 0452}{RegioTram Kassel}{et0452.jpg}%
-    {90}{37,48}{3}{8}{0,60}{100}{59,8}%
-    {0423}{RegioTram}{0426}{0430}{}
-\quartettkarte{F1}{ET 0428}{FLIRT 1 (4-tlg)}{et0428.jpg}
+\quartettkarte{B3}{iLINT 54}{ETH 0554}{eth554.jpg}%
+    {138}{54,3}{2}{8}{0,54}{120}{???}%
+    {LINT 27}{LINT 41}{iLINT 54}{LINT 81}{}
+\quartettkarte{B4}{LINT 81}{VT 0620}{vt0620.jpg}%
+    {300}{80,9}{3}{12}{1,56}{140}{138}%
+    {LINT 27}{LINT 41}{iLINT 54}{LINT 81}{}%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\quartettkarte{C1}{GTW 2/6}{VT 0646}{vt0646.jpg}%
+    {120}{38,7}{2}{6}{0,42}{120}{52}%
+    {GTW 2/6}{RegioShuttle}{RegioSprinter}{Coradia A TER}{}%
+\quartettkarte{C2}{RegioShuttle}{VT 0650}{vt0650.jpg}%
+    {101}{25,5}{1}{4}{0,53}{120}{40}%
+    {GTW 2/6}{RegioShuttle}{RegioSprinter}{Coradia A TER}{}%
+\quartettkarte{C3}{RegioSprinter}{VT 0654}{vt0654.jpg}%
+    {74}{24,8}{3}{4}{0,40}{120}{49}%
+    {GTW 2/6}{RegioShuttle}{RegioSprinter}{Coradia A TER}{}%
+\quartettkarte{C4}{Coradia A TER}{VT 0641}{vt0641.jpg}%
+    {63}{28,9}{1}{4}{0,51}{120}{49}%
+    {GTW 2/6}{RegioShuttle}{RegioSprinter}{Coradia A TER}{}%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\quartettkarte{D1}{ET 0423}{423⁰ + 433⁰ + 433⁵ + 423⁵}{et0423.jpg}%
+    {192}{67,4}{4}{10}{2,35}{140}{105}%
+    {423}{RegioTram}{426}{430}{}
+\quartettkarte{D2}{RegioTram Kassel}{\textbf{ET 452⁷ + 452⁵ + 852⁷}, \small VT 0689}{et0452.jpg}%
+    {90}{37,5}{3}{8}{0,60}{100}{60}%
+    {423}{RegioTram}{426}{430}{}
+\quartettkarte{D3}{ET 0426}{426⁰ + 426⁵}{et0426.jpg}%
+    {100}{36,5}{2}{6}{1,18}{160}{63}%
+    {423}{RegioTram}{426}{430}{}
+\quartettkarte{D4}{ET 0430}{430⁰ + 431⁰ + 431⁵ + 430⁵}{et0430.jpg}%
+    {184}{68,3}{4}{10}{2,35}{140}{119}%
+    {423}{RegioTram}{426}{430}{}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\quartettkarte{E1}{Desiro HC}{ET 0462}{et0462.jpg}%
+    {400}{105,3}{4}{16}{4,00}{160}{198}%
+    {Desiro HC}{TwinDexx Vario}{KISS 160}{FLIRT 1}{}
+\quartettkarte{E2}{TwinDexx Vario}{445 + DBpza + DABpza + 445}{et0445.jpg}%
+    {437}{105,6}{4}{16}{4,60}{160}{227}%
+    {Desiro HC}{TwinDexx Vario}{KISS 160}{FLIRT 1}{}
+\quartettkarte{E3}{KISS 160}{445⁰ + 446² + \ldots + 446⁶+ 445⁷}{et0446.jpg}%
+    {626}{156,5}{6}{24}{4,50}{160}{296}%
+    {Desiro HC}{TwinDexx Vario}{KISS 160}{FLIRT 1}{}
+\quartettkarte{E4}{FLIRT 1 (4-tlg)}{ET 0428}{et0428.jpg}
     {219}{74,3}{4}{10}{2,00}{160}{120}%
-    {FLIRT 1}{Desiro ML}{Coradia Continental}{TALENT 2}{}
-\quartettkarte{G3}{ET 5411}{ICE-T7}{et5411.jpg}
-    {376}{185}{7}{28}{4,00}{230}{386}%
-    {Neuer ICE3}{ICE 3 neo}{ICE-T7}{RegioSwinger}{}
-\quartettkarte{H1}{ET 5401}{ICE 1 LDV}{et5401.jpg}
+    {Desiro HC}{TwinDexx Vario}{KISS 160}{FLIRT 1}{}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\quartettkarte{F1}{Mireo}{ET 0463}{et0463.jpg}
+    {160}{72,0}{3}{8}{2,6}{160}{101}% % Länge geraten
+    {Mireo}{Desiro ML}{Continental}{TALENT 2}{}
+\quartettkarte{F2}{Desiro ML}{ET 0460}{et0460.jpg}
+    {252}{70,9}{3}{12}{2,60}{160}{132}%
+    {Mireo}{Desiro ML}{Continental}{TALENT 2}{}
+\quartettkarte{F3}{Coradia Continental}{1440² + 1441² + 1841² + 1441⁷ + 1440⁷}{et1440.jpg}
+    {293}{89,7}{5}{12}{2,88}{160}{168}%
+    {Mireo}{Desiro ML}{Continental}{TALENT 2}{}
+\quartettkarte{F4}{TALENT 2}{ET 9442}{et9442.jpg}
+    {162}{56,2}{3}{8}{2,28}{160}{103}% % Sitzplätze und Leermasse geraten
+    {Mireo}{Desiro ML}{Continental}{TALENT 2}{}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\quartettkarte{G1}{KISS 200}{ET 4110}{et4110.jpg}%
+    {302}{100,0}{4}{16}{4,00}{200}{218}%
+    {KISS 200}{ICE 3 MS}{ICE-T7}{RegioSwinger}{}
+\quartettkarte{G2}{ICE 3 MS}{ET 5407 / Tz 7xx}{et5407.jpg}%
+    {444}{200,7}{8}{32}{8,00}{320}{463}%
+    {KISS 200}{ICE 3 MS}{ICE-T7}{RegioSwinger}{}
+\quartettkarte{G3}{ICE-T7}{\textbf{411: 7-tlg.}, \small 415: 5-tlg, 605: Diesel}{et5411.jpg}%
+    {376}{185,0}{7}{28}{4,00}{230}{386}%
+    {KISS 200}{ICE 3 MS}{ICE-T7}{RegioSwinger}{}
+\quartettkarte{G4}{VT 0612}{RegioSwinger}{vt0612.jpg}%
+    {146}{51,8}{2}{8}{1,13}{160}{116}%
+    {KISS 200}{ICE 3 MS}{ICE-T7}{RegioSwinger}{}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\quartettkarte{H1}{ICE 1 LDV}{401⁵ + A,A,WR,B,B,B,B,B,B + 401⁰}{et5401.jpg}%
     {503}{278,7}{9}{44}{9,60}{280}{627}%
-    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 4$^{\rm 13}$}{}
-\quartettkarte{H4}{ET 0412}{ICE 4$^{\rm 13}$}{et0412.jpg}
-    {918}{374}{13}{52}{11,55}{265}{731}%
-    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 4$^{\rm 13}$}{}
-%\quartettkarte{H1}{ICE 1 LDV}{et5411.jpg}{376}{185}{7}{28}{4,00}{280}{5401}{386}{a}{b}{c}{d}{e}
-%\quartettkarte{H2}{ICE 2}{et5411.jpg}{376}{185}{7}{28}{4,00}{280}{5402}{386}{a}{b}{c}{d}{e}
-%\quartettkarte{H3}{ICE 3}{et5411.jpg}{376}{185}{7}{28}{4,00}{330}{5403}{386}{a}{b}{c}{d}{e}
-%\quartettkarte{H4}{ICE 4$^{\rm 13}$}{et5411.jpg}{376}{185}{7}{28}{4,00}{265}{Tz 9451..9499}{386}{a}{b}{c}{d}{e}
-%\quartettkarte{A2}{gaG}
-%\quartettkarte{A3}{gaF}
-%\quartettkarte{A4}{gaE}
-%\quartettkarte{B1}{gaA}
-%\quartettkarte{B2}{gaB}
-%\quartettkarte{B3}{gaC}
-%\quartettkarte{B4}{gaD}
-%\quartettkarte{C1}{giE}
-%\quartettkarte{C2}{giF}
-%\quartettkarte{C3}{giG}
-%\quartettkarte{C4}{giH}
-%\quartettkarte{D1}{giD}
-%\quartettkarte{D2}{giC}
-%\quartettkarte{D3}{giB}
-%\quartettkarte{D4}{giB}
-%\quartettkarte{E1}{giD}
-%\quartettkarte{E2}{giC}
-%\quartettkarte{E3}{giB}
-%\quartettkarte{E4}{giB}
-%\quartettkarte{F1}{giD}
-%\quartettkarte{F2}{giC}
-%\quartettkarte{F3}{giB}
-%\quartettkarte{F4}{giB}
-%\quartettkarte{G1}{giD}
-%\quartettkarte{G2}{giC}
-%\quartettkarte{G3}{giB}
-%\quartettkarte{G4}{giB}
-%\quartettkarte{H1}{giD}
-%\quartettkarte{H2}{giC}
-%\quartettkarte{H3}{giB}
-%\quartettkarte{H4}{giB}
+    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 4.13}{}
+\quartettkarte{H2}{ICE 2}{402 + A,A,WR,B,B,B,Bf}{et5402.jpg}%
+    {381}{205,4}{7}{32}{4,80}{280}{418}%
+    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 4.13}{}
+\quartettkarte{H3}{ICE 3}{5403 (1Sys), 5406 (4Sys)}{et5403.jpg}%
+    {374}{200,8}{8}{32}{8,00}{330}{435}%
+    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 4.13}{}
+\quartettkarte{H4}{ICE 4.13}{5812⁰+\ldots+0812⁰}{et0412.jpg}%
+    {450}{374,0}{13}{52}{11,55}{265}{731}%
+    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 4.13}{}
 %\backside
 %\newcounter{numcards}
 %\setcounter{numcards}{0}
