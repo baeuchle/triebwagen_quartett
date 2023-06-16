@@ -3,6 +3,9 @@
 Hier gibt es die Vorlage für ein Quartett und die Ausführung davon für
 moderne Eisenbahntriebwagen in Deutschland.
 
+![Bild der Titel-, Urheberrechtsinfo- und A1-Karten, niedrige
+Auflösung](for_readme/karten.png)
+
 # Kompilieren
 
 Die Vorlage ist in TeX geschrieben und benutzt sowohl jpg-Dateien als
@@ -14,7 +17,7 @@ empfohlen wird.
 Dieses Werk und alle darin enthaltenen Dateien und Bilder, die nicht im
 nächsten Abschnitt „Abweichende Lizenzen“ aufgeführt sind, sind unter
 einer Creative Commons Lizenz vom Typ Namensnennung - Weitergabe unter
-gleichen Bedingungen 4.0 Deutschland CC-BY-SA 4.0 zugänglich. Der
+gleichen Bedingungen 4.0 Deutschland CC BY-SA 4.0 zugänglich. Der
 Volltext dieser Lizenz ist in der Datei LICENSE zu finden.
 Urheberrechtsbesitzer ist, soweit nicht anders angegeben, Bjørn Bäuchle
 %lt;quartett at frankfurtium dot de&gt;
@@ -26,3 +29,8 @@ Urheberrechtsbesitzer ist, soweit nicht anders angegeben, Bjørn Bäuchle
   von
   [fontsarena.com](https://fontsarena.com/blog/free-din-font-and-alternatives/)
   erhalten und werden unter der gleichen Lizenz weitergegeben.
+
+# Beispiele
+
+![Bild der Karte B2 mit LINT 41](for_readme/karte-b2.png)
+![Bild der Karte G4 mit RegioSwinger (BR 612)](for_readme/karte-g4.png)
