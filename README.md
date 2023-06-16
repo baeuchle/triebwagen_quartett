@@ -20,7 +20,7 @@ einer Creative Commons Lizenz vom Typ Namensnennung - Weitergabe unter
 gleichen Bedingungen 4.0 Deutschland CC BY-SA 4.0 zugänglich. Der
 Volltext dieser Lizenz ist in der Datei LICENSE zu finden.
 Urheberrechtsbesitzer ist, soweit nicht anders angegeben, Bjørn Bäuchle
-%lt;quartett at frankfurtium dot de&gt;
+&lt;quartett at frankfurtium dot de&gt;
 
 ## Abweichende Lizenzen
 
@@ -29,6 +29,9 @@ Urheberrechtsbesitzer ist, soweit nicht anders angegeben, Bjørn Bäuchle
   von
   [fontsarena.com](https://fontsarena.com/blog/free-din-font-and-alternatives/)
   erhalten und werden unter der gleichen Lizenz weitergegeben.
+- Alle Bilddateien, zu denen es eine gleichnamige Datei Endung .license
+  gibt, stehen unter der darin angegebenen Lizenz. Diese Lizenz ist
+  jeweils auch im EXIF-Tag als Kommentar hinterlegt.
 
 # Beispiele
 
