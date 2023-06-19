@@ -21,12 +21,19 @@ labelsep=1em, itemindent=!}
 \newunicodechar{⁸}{{${}^{\it 8}$}}
 \newunicodechar{⁹}{{${}^{\it 9}$}}
 
+\def\Hexagon{%
+  \pspicture(0.866,0.75)% sin(60)=0.866
+  \SpecialCoor
+  \pspolygon[dimen=middle](0.5;30)(0.5;90)(0.5;150)
+                          (0.5;210)(0.5;270)(0.5;330)%Hexagon
+\endpspicture}
+
 \definecolor{darkgreen}{rgb}{0,0.5,0}
 \setlength{\unitlength}{1mm}
 \psset{unit=1mm}
 \ticketNumbers{3}{3}
 \ticketSize{60}{90}
-\ticketDistance{5}{5}
+\ticketDistance{10}{5}
 
 \newcommand{\propertyline}[2]{%
   \psframe(0,0)(52,5)
@@ -47,7 +54,7 @@ labelsep=1em, itemindent=!}
   \begin{pspicture}(0,0)(60,90)
     \psset{cornersize=absolute}
     % cut frame for the cards:
-    \psframe[linewidth=.1pt,linearc=6,fillstyle=none,linestyle=dotted](0,0)(60,90)
+    \psframe[linewidth=1pt,linearc=6,fillstyle=none,linestyle=dotted](0,0)(60,90)
     % printed card frame
     \psboxfill{\includegraphics[width=54mm,height=84mm]{../pictures/titel.jpg}}
     \psframe[linearc=3,fillstyle=boxfill,fillsize={(3mm,3mm)(54mm,84mm)}](3,3)(57,87)
@@ -62,7 +69,7 @@ labelsep=1em, itemindent=!}
     \psset{cornersize=absolute}
     \psset{fillstyle=none}
     % cut frame for the cards:
-    \psframe[linewidth=.1pt,linearc=6,linestyle=dotted](0,0)(60,90)
+    \psframe[linewidth=1pt,linearc=6,linestyle=dotted](0,0)(60,90)
     % printed card frame
     \psframe[linearc=3](3,3)(57,87)
     \rput[tc](30,84){\textbf{Urheberrecht}}
@@ -87,6 +94,7 @@ labelsep=1em, itemindent=!}
   \def\tempNummer{#1}%
   \def\tempName{#2}%
   \def\tempDesc{#3}%
+  \def\tempFile{#4}%
   \def\tempBild{\includegraphics[width=50mm,height=30mm]{../pictures/#4}}%
   \def\tempSitzplaetze{#5}%
   \def\tempLaenge{#6}%
@@ -105,7 +113,7 @@ labelsep=1em, itemindent=!}
   \begin{pspicture}(0,0)(60,90)
     \psset{cornersize=absolute}
     % cut frame for the cards:
-    \psframe[linewidth=.1pt,linearc=6,fillstyle=none,linestyle=dotted](0,0)(60,90)
+    \psframe[linewidth=1pt,linearc=6,fillstyle=none,linestyle=dotted](0,0)(60,90)
     % printed card frame
     \psset{fillstyle=solid}
     \psframe[linearc=3,fillcolor=gray](3,3)(57,87)
@@ -127,7 +135,7 @@ labelsep=1em, itemindent=!}
     {% data
       \rput(4,36){\propertyline{Sitzplätze}{\tempSitzplaetze}}
       \rput(4,30){\propertyline{Länge}{\tempLaenge{} m}}
-      \rput(4,24){\propertyline{Teile/Achsen}{\tempTeile/\tempAchsen}}
+      \rput(4,24){\propertyline{Fahrgastteile/Achsen}{\tempTeile/\tempAchsen}}
       \rput(4,18){\propertyline{Leistung}{\tempLeistung{} MW}}
       \rput(4,12){\propertyline{Höchstgeschwindigkeit}{\tempVmax{} km/h}}
       \rput(4,6){ \propertyline{Leermasse}{\tempMasse{} t}}
@@ -141,7 +149,15 @@ labelsep=1em, itemindent=!}
   \end{pspicture}
 }}
 \newcommand{\rueckseite}{\ticket{%
-  RÜCK RÜCK RÜCK
+  \begin{pspicture}(0,0)(60,90)
+    \psset{cornersize=absolute}
+    \psset{fillstyle=none}
+    % cut frame for the cards:
+    \psframe[linewidth=1pt,linearc=6,linestyle=dotted](0,0)(60,90)
+    % printed card frame
+    \psboxfill{\includegraphics[width=54mm,height=84mm]{../pictures/background.pdf}}
+    \psframe[linearc=3,linestyle=solid,linewidth=1mm,linecolor=black,fillstyle=boxfill,fillsize={(3mm,3mm)(54mm,84mm)}](3,3)(57,87)
+  \end{pspicture}
 }}
 
 \begin{document}
@@ -181,7 +197,7 @@ labelsep=1em, itemindent=!}
     {119}{39,5}{2}{6}{1,14}{140}{62}%
     {TALENT 1}{Itino}{iLINT 54}{RegioSwinger}{}
 \quartettkarte{C3}{iLINT 54}{ETH 0554}{eth554.jpg}%
-    {138}{54,3}{2}{8}{0,54}{120}{???}%
+    {138}{54,3}{2}{8}{0,54}{120}{98}%
     {TALENT 1}{Itino}{iLINT 54}{RegioSwinger}{}
 \quartettkarte{C4}{VT 0612}{RegioSwinger}{vt0612.jpg}%
     {146}{51,8}{2}{8}{1,13}{160}{116}%
@@ -190,13 +206,13 @@ labelsep=1em, itemindent=!}
 \quartettkarte{D1}{ET 0423}{423⁰ + 433⁰ + 433⁵ + 423⁵}{et0423.jpg}%
     {192}{67,4}{4}{10}{2,35}{140}{105}%
     {423}{430}{RegioTram}{426}{}
-\quartettkarte{D4}{ET 0430}{430⁰ + 431⁰ + 431⁵ + 430⁵}{et0430.jpg}%
+\quartettkarte{D2}{ET 0430}{430⁰ + 431⁰ + 431⁵ + 430⁵}{et0430.jpg}%
     {184}{68,3}{4}{10}{2,35}{140}{119}%
     {423}{430}{RegioTram}{426}{}
-\quartettkarte{D2}{RegioTram Kassel}{\textbf{ET 452⁷ + 452⁵ + 852⁷}, \small VT 0689}{et0452.jpg}%
+\quartettkarte{D3}{RegioTram Kassel}{\textbf{ET 452⁷ + 452⁵ + 852⁷}, \small VT 0689}{et0452.jpg}%
     {90}{37,5}{3}{8}{0,60}{100}{60}%
     {423}{430}{RegioTram}{426}{}
-\quartettkarte{D3}{ET 0426}{426⁰ + 426⁵}{et0426.jpg}%
+\quartettkarte{D4}{ET 0426}{426⁰ + 426⁵}{et0426.jpg}%
     {100}{36,5}{2}{6}{1,18}{160}{63}%
     {423}{430}{RegioTram}{426}{}
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -252,16 +268,21 @@ labelsep=1em, itemindent=!}
     {444}{200,7}{8}{32}{8,00}{320}{463}%
     {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 3MS}{}
 %%%%%%%%%%%%%%%%%%%%%%%%
+\quartettkarte{}{}{}{fehlt.pdf}%
+    {}{}{}{\phantom{99}}{}{}{}%
+    {}{}{}{}{}
+\quartettkarte{}{}{}{fehlt.pdf}%
+    {}{}{}{\phantom{99}}{}{}{}%
+    {}{}{}{}{}
 % unused:
-% \quartettkarte{}{LINT 81}{VT 0620}{vt0620.jpg}%
-%     {300}{80,9}{3}{12}{1,56}{140}{138}%
-%     {}{}{}{}{}%
+%\quartettkarte{}{LINT 81}{VT 0620}{vt0620.jpg}%
+%    {300}{80,9}{3}{12}{1,56}{140}{138}%
+%    {}{}{}{}{}%
 %\quartettkarte{}{LINT 27}{VT 0640}{vt0640.jpg}%
 %    {52}{27,3}{1}{4}{0,32}{120}{41}%
 %    {}{}{}{}{}
-%\backside
-%\newcounter{numcards}
-%\setcounter{numcards}{0}
-%\whiledo{\thenumcards<32}{\stepcounter{numcards}%
-%\rueckseite}
+\newpage\ticketreset
+\newcounter{numcards}
+\setcounter{numcards}{0}
+\whiledo{\thenumcards<36}{\stepcounter{numcards}\rueckseite}
 \end{document}

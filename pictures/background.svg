@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="60mm"
+   height="90mm"
+   viewBox="0 0 60 90"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+  >
+  <defs>
+    <pattern
+       id="Ermine"
+       patternTransform="translate(0,0) scale(0.02,0.02)"
+       height="797.156"
+       width="783.093"
+       patternUnits="userSpaceOnUse"
+       style="stroke:none;"
+       >
+       <g style="fill:#800000;">
+        <circle cx="566.875" cy="429.90" r="68.578" />
+        <circle cx="177.156" cy="068.90" r="68.578" />
+        <circle cx="285.718" cy="209.34" r="68.578" />
+        <circle cx="675.437" cy="570.31" r="68.578" />
+        <circle cx="068.593" cy="212.21" r="68.578" />
+        <circle cx="458.281" cy="573.18" r="68.578" />
+       </g>
+       <g style="fill:#ff8080; fill-opacity:.7;">
+        <path
+           d="M 551.093,526.03 C 543.970,639.54 527.089,723.7 506.593,797.15 L 624,797.15 C 604.261,723.91 588.746,639.88 582.468,526.03 L 551.093,526.03 z" />
+        <path
+           d="M 507.406,0 C 479.357,101.33 444.335,181.71 418.312,289.1 L 516.406,220.53 L 569.718,289.09 L 623.031,220.5 L 715.406,289.03 C 685.074,180.8 650.084,100.80 623.187,0 L 507.406,0 z"
+           />
+       </g>
+    </pattern>
+    <pattern id="Wavywhite"
+       patternUnits="userSpaceOnUse"
+       width="15.03301"
+       height="2.5902889"
+       >
+     <g transform="scale(.5,.5)">
+      <path
+         style="fill:#f8f8f8;stroke:none;"
+         d="M 7.597,0.061 C 5.079,-0.187 2.656,0.302 -0.01,1.788 L -0.01,3.061 C 2.773,1.431 5.173,1.052 7.472,1.280 C 9.770,1.508 11.969,2.361 14.253,3.218 C 18.820,4.931 23.804,6.676 30.066,3.061 L 30.062,1.788 C 23.622,5.497 19.246,3.770 14.691,2.061 C 12.413,1.207 10.115,0.311 7.597,0.061 z "
+         />
+       </g>
+    </pattern>
+    <pattern id="Packedcircles"
+       width="1" height="1.73205080756"
+       patternTransform="translate(0,0) scale(10,10)"
+       patternUnits="userSpaceOnUse"
+       >
+      <circle style="fill:#008; stroke:none"
+         cx="0" cy="0.5" r="0.3"  />
+      <circle style="fill:#008; stroke:none"
+         cx="1" cy="0.5" r="0.3" />
+      <circle style="fill:#080; stroke:none"
+         cx="0.5" cy="1.36602540378" r="0.3" />
+    </pattern>
+  </defs>
+  <g>
+    <rect style="fill:url(#Packedcircles);fill-opacity:1.0"
+       width="60" height="90" x="0" y="0" />
+    <rect style="fill:url(#Wavywhite);fill-opacity:1.0"
+       width="60" height="90" x="0" y="0" />
+    <rect style="fill:url(#Ermine);fill-opacity:1.0"
+       width="60" height="90" x="0" y="0" />
+  </g>
+</svg>

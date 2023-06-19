@@ -12,6 +12,9 @@ Die Vorlage ist in TeX geschrieben und benutzt sowohl jpg-Dateien als
 auch das package pstricks, weswegen eine Kompilierung mit xelatex
 empfohlen wird.
 
+    xelatex -output-driver="xdvipdfmx -i xdvipdfmx.cfg -q -E" quartett.tex
+    pdfjam -o ../duplex.pdf quartett.pdf 1,5,2,6,3,7,4,8
+
 # Lizenz
 
 Dieses Werk und alle darin enthaltenen Dateien und Bilder, die nicht im
