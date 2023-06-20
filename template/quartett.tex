@@ -99,10 +99,11 @@ labelsep=1em, itemindent=!}
 \newcommand{\kartecontinued}[7]{\ticket{%
   \def\tempVmax{#1}%
   \def\tempMasse{#2}%
-  \def\tempEins{#3}%
-  \def\tempZwei{#4}%
-  \def\tempDrei{#5}%
-  \def\tempVier{#6}%
+  \def\tempMasseProSitzplatz{#3}%
+  \def\tempEins{#4}%
+  \def\tempZwei{#5}%
+  \def\tempDrei{#6}%
+  \def\tempVier{#7}%
   \begin{pspicture}(0,0)(60,90)
     \psset{cornersize=absolute}
     % cut frame for the cards:
@@ -131,14 +132,14 @@ labelsep=1em, itemindent=!}
     \psframe(53,77)(56,80)
     \rput[t](50,84.5){\textbf{\Huge \tempNummer}}
     \rput[tl](5,76){\tempBild}
-    \rput[tc](30,44){\textit{\color{yellow}\textbf{\tempDesc}}}
+    \rput[tc](30,43.5){\textit{\color{yellow}\textbf{\tempDesc}}}
     {% data
       \rput(4,36){\propertyline{Sitzplätze}{\tempSitzplaetze}}
       \rput(4,30){\propertyline{Länge}{\tempLaenge{} m}}
       \rput(4,24){\propertyline{Fahrgastteile/Achsen}{\tempTeile/\tempAchsen}}
       \rput(4,18){\propertyline{Leistung}{\tempLeistung{} MW}}
       \rput(4,12){\propertyline{Höchstgeschwindigkeit}{\tempVmax{} km/h}}
-      \rput(4,6){ \propertyline{Leermasse}{\tempMasse{} t}}
+      \rput(4,6){ \propertyline{Leermasse}{\tempMasse{} t\textsf{ = }\tempMasseProSitzplatz{} t/\textsf{Sitzplatz}}}
     }
   \rput[tl](6,6){% other cards from same letter
     \rput[tl](00,0){\others{\tempEins}{yellow}}
@@ -164,115 +165,115 @@ labelsep=1em, itemindent=!}
 \titleticket
 \copyrightticket
 \quartettkarte{}{}{}{fehlt.pdf}%
-    {}{}{}{\phantom{99}}{}{}{}%
-    {}{}{}{}{}
+    {}{}{}{\phantom{99}}{}{}{}{\phantom{9},\phantom{99}}%
+    {}{}{}{}
 %%%%%%%%%%%%%%%%%%%%%%%%
 \quartettkarte{A1}{Coradia A TER}{VT 0641}{vt0641.jpg}%
-    {63}{28,9}{1}{4}{0,51}{120}{49}%
-    {Coradia A TER}{RegioSprinter}{RegioShuttle}{GTW 2/6}{}%
+    {63}{28,9}{1}{4}{0,51}{120}{49}{0,78}%
+    {Coradia A TER}{RegioSprinter}{RegioShuttle}{GTW 2/6}
 \quartettkarte{A2}{RegioSprinter}{VT 0654}{vt0654.jpg}%
-    {64}{24,8}{3}{4}{0,40}{120}{32}%
-    {Coradia A TER}{RegioSprinter}{RegioShuttle}{GTW 2/6}{}%
+    {64}{24,8}{3}{4}{0,40}{120}{32}{0,50}%
+    {Coradia A TER}{RegioSprinter}{RegioShuttle}{GTW 2/6}
 \quartettkarte{A3}{RegioShuttle}{VT 0650}{vt0650.jpg}%
-    {58}{25,4}{1}{4}{0,53}{120}{42}%
-    {Coradia A TER}{RegioSprinter}{RegioShuttle}{GTW 2/6}{}%
+    {58}{25,4}{1}{4}{0,53}{120}{42}{0,72}%
+    {Coradia A TER}{RegioSprinter}{RegioShuttle}{GTW 2/6}
 \quartettkarte{A4}{GTW 2/6}{VT 0646}{vt0646.jpg}%
-    {92}{38,7}{2}{6}{0,42}{120}{53}%
-    {Coradia A TER}{RegioSprinter}{RegioShuttle}{GTW 2/6}{}%
+    {92}{38,7}{2}{6}{0,42}{120}{53}{0,58}%
+    {Coradia A TER}{RegioSprinter}{RegioShuttle}{GTW 2/6}
 %%%%%%%%%%%%%%%%%%%%%%%%
 \quartettkarte{B1}{PESA LINK}{633⁰{\tiny + 933⁰ + }633⁵}{vt0633.jpg}%
-    {160}{57,1}{3}{8}{1,13}{140}{120}%
-    {PESA LINK}{Integral}{LINT 41}{Desiro Classic}{}
+    {160}{57,1}{3}{8}{1,13}{140}{120}{0,75}%
+    {PESA LINK}{Integral}{LINT 41}{Desiro Classic}
 \quartettkarte{B2}{Integral}{VT 0609¹}{vt0609-1.jpg}%
-    {164}{53,4}{5}{6}{0,95}{140}{74}%
-    {PESA LINK}{Integral}{LINT 41}{Desiro Classic}{}
+    {164}{53,4}{5}{6}{0,95}{140}{74}{0,45}%
+    {PESA LINK}{Integral}{LINT 41}{Desiro Classic}
 \quartettkarte{B3}{LINT 41}{VT 0648}{vt0648.jpg}%
-    {120}{41,8}{2}{6}{0,80}{120}{63}%
-    {PESA LINK}{Integral}{LINT 41}{Desiro Classic}{}
+    {120}{41,8}{2}{6}{0,80}{120}{63}{0,53}%
+    {PESA LINK}{Integral}{LINT 41}{Desiro Classic}
 \quartettkarte{B4}{Desiro Classic}{VT 0642}{vt0642.jpg}%
-    {110}{41,7}{2}{6}{0,72}{120}{69}%
-    {PESA LINK}{Integral}{LINT 41}{Desiro Classic}{}
+    {110}{41,7}{2}{6}{0,72}{120}{69}{0,63}%
+    {PESA LINK}{Integral}{LINT 41}{Desiro Classic}
 %%%%%%%%%%%%%%%%%%%%%%%%
 \quartettkarte{C1}{TALENT 1}{643⁰{\tiny + 943⁰ + }643⁵}{vt0643.jpg}%
-    {137}{48,4}{3}{8}{0,63}{120}{72}%
-    {TALENT 1}{Itino}{iLINT 54}{RegioSwinger}{}
+    {137}{48,4}{3}{8}{0,63}{120}{72}{0,53}%
+    {TALENT 1}{Itino}{iLINT 54}{RegioSwinger}
 \quartettkarte{C2}{Itino}{VT 0615}{vt0615.jpg}%
-    {119}{39,5}{2}{6}{1,14}{140}{62}%
-    {TALENT 1}{Itino}{iLINT 54}{RegioSwinger}{}
+    {119}{39,5}{2}{6}{1,14}{140}{62}{0,52}%
+    {TALENT 1}{Itino}{iLINT 54}{RegioSwinger}
 \quartettkarte{C3}{iLINT 54}{ETH 0554}{eth554.jpg}%
-    {138}{54,3}{2}{8}{0,54}{120}{98}%
-    {TALENT 1}{Itino}{iLINT 54}{RegioSwinger}{}
+    {138}{54,3}{2}{8}{0,54}{120}{98}{0,71}%
+    {TALENT 1}{Itino}{iLINT 54}{RegioSwinger}
 \quartettkarte{C4}{VT 0612}{RegioSwinger \tiny Neigetechnik}{vt0612.jpg}%
-    {146}{51,8}{2}{8}{1,13}{160}{116}%
-    {TALENT 1}{Itino}{iLINT 54}{RegioSwinger}{}
-%%%%%%%%%%%%%%%%%%%%%%%%
+    {146}{51,8}{2}{8}{1,13}{160}{116}{0,79}%
+    {TALENT 1}{Itino}{iLINT 54}{RegioSwinger}
+%%%%%%%%%%%%%%%%%%%%%%
 \quartettkarte{D1}{ET 0423}{423⁰{\tiny + 433⁰ + 433⁵ + }423⁵}{et0423.jpg}%
-    {192}{67,4}{4}{10}{2,35}{140}{105}%
-    {423}{430}{RegioTram}{426}{}
+    {192}{67,4}{4}{10}{2,35}{140}{105}{0,55}%
+    {423}{430}{RegioTram}{426}
 \quartettkarte{D2}{ET 0430}{430⁰{\tiny + 431⁰ + 431⁵ + }430⁵}{et0430.jpg}%
-    {184}{68,3}{4}{10}{2,35}{140}{119}%
-    {423}{430}{RegioTram}{426}{}
+    {184}{68,3}{4}{10}{2,35}{140}{119}{0,65}%
+    {423}{430}{RegioTram}{426}
 \quartettkarte{D3}{RegioTram E+E}{452⁷{\tiny + 452⁵ + }852⁷}{et0452.jpg}%
-    {90}{37,5}{3}{8}{0,60}{100}{60}%
-    {423}{430}{RegioTram}{426}{}
+    {90}{37,5}{3}{8}{0,60}{100}{60}{0,67}%
+    {423}{430}{RegioTram}{426}
 \quartettkarte{D4}{ET 0426}{426⁰ + 426⁵, \tiny 425⁰+435⁰+435⁵+425⁵}{et0426.jpg}%
-    {100}{36,5}{2}{6}{1,18}{160}{63}%
-    {423}{430}{RegioTram}{426}{}
-%%%%%%%%%%%%%%%%%%%%%%%%
+    {100}{36,5}{2}{6}{1,18}{160}{63}{0,63}%
+    {423}{430}{RegioTram}{426}
+%%%%%%%%%%%%%%%%%%%%%%
 \quartettkarte{E1}{FLIRT 1 (4-tlg)}{0428⁰{\tiny + 0828⁰ + 0828⁵ + }0428⁵}{et0428.jpg}
-    {219}{74,3}{4}{10}{2,00}{160}{120}%
-    {FLIRT 1}{FLIRT 3XL}{Desiro ML}{Mireo}{}
+    {219}{74,3}{4}{10}{2,00}{160}{120}{0,74}%
+    {FLIRT 1}{FLIRT 3XL}{Desiro ML}{Mireo}
 \quartettkarte{E2}{FLIRT 3XL (3-tlg)}{3427⁰{\tiny + 3827⁰ + }3427⁵}{et3427.jpg}%
-    {181}{67,6}{3}{8}{2,00}{160}{100}%
-    {FLIRT 1}{FLIRT 3XL}{Desiro ML}{Mireo}{}
+    {181}{67,6}{3}{8}{2,00}{160}{100}{0,55}%
+    {FLIRT 1}{FLIRT 3XL}{Desiro ML}{Mireo}
 \quartettkarte{E3}{Desiro ML}{ET 0460}{et0460.jpg}
-    {244}{70,9}{3}{12}{2,60}{160}{132}%
-    {FLIRT 1}{FLIRT 3XL}{Desiro ML}{Mireo}{}
+    {244}{70,9}{3}{12}{2,60}{160}{132}{0,54}%
+    {FLIRT 1}{FLIRT 3XL}{Desiro ML}{Mireo}
 \quartettkarte{E4}{Mireo}{ET 0463, \tiny ETH0563}{et0463.jpg}
-    {200}{72,0}{3}{8}{2,6}{160}{101}% % Länge geraten
-    {FLIRT 1}{FLIRT 3XL}{Desiro ML}{Mireo}{}
+    {200}{72,0}{3}{8}{2,6}{160}{101}{0,51}% % Länge geraten
+    {FLIRT 1}{FLIRT 3XL}{Desiro ML}{Mireo}
 %%%%%%%%%%%%%%%%%%%%%%%%
 \quartettkarte{F1}{TALENT 2}{ET 9442}{et9442.jpg}
-    {162}{56,2}{3}{8}{2,28}{160}{103}% % Sitzplätze und Leermasse geraten
-    {TALENT 2}{Continental}{Desiro HC}{TwinDexx Vario}{}
+    {162}{56,2}{3}{8}{2,28}{160}{103}{0,64}% % Sitzplätze und Leermasse geraten
+    {TALENT 2}{Continental}{Desiro HC}{TwinDexx Vario}
 \quartettkarte{F2}{Coradia Continental}{1440²{\tiny + 1441² + 1841² + 1441⁷ + }1440⁷}{et1440.jpg}
-    {293}{89,7}{5}{12}{2,88}{160}{168}%
-    {Mireo}{Desiro ML}{Continental}{TALENT 2}{}
+    {293}{89,7}{5}{12}{2,88}{160}{168}{0,57}%
+    {TALENT 2}{Continental}{Desiro HC}{TwinDexx Vario}
 \quartettkarte{F3}{Desiro HC}{ET 0462}{et0462.jpg}%
-    {400}{105,3}{4}{16}{4,00}{160}{198}%
-    {Desiro HC}{TwinDexx Vario}{KISS 160}{FLIRT 1}{}
+    {400}{105,3}{4}{16}{4,00}{160}{198}{0,50}%
+    {TALENT 2}{Continental}{Desiro HC}{TwinDexx Vario}
 \quartettkarte{F4}{TwinDexx Vario}{445{\tiny + DBpza + DABpza + }445}{et0445.jpg}%
-    {437}{105,6}{4}{16}{4,60}{160}{227}%
-    {Desiro HC}{TwinDexx Vario}{KISS 160}{FLIRT 1}{}
+    {437}{105,6}{4}{16}{4,60}{160}{227}{0,63}%
+    {TALENT 2}{Continental}{Desiro HC}{TwinDexx Vario}
 %%%%%%%%%%%%%%%%%%%%%%%%
 \quartettkarte{G1}{KISS 160}{445⁰{\tiny + 446² + 446³ + 446⁴ + 446⁵ + 446⁶+ }445⁷}{et0446.jpg}%
-    {558}{156,5}{6}{24}{4,50}{160}{296}%
-    {KISS 160}{KISS 200}{ICE-T}{ICE 4}{}
+    {558}{156,5}{6}{24}{4,50}{160}{296}{0,53}%
+    {KISS 160}{KISS 200}{ICE-T}{ICE 4}
 \quartettkarte{G2}{KISS 200}{ET 4110}{et4110.jpg}%
-    {302}{100,0}{4}{16}{4,00}{200}{218}%
-    {KISS 160}{KISS 200}{ICE-T}{ICE 4}{}
+    {302}{100,0}{4}{16}{4,00}{200}{218}{0,72}%
+    {KISS 160}{KISS 200}{ICE-T}{ICE 4}
 \quartettkarte{G3}{ICE-T7}{T7: 411 \small Tz 11xx, \tiny T5: 415 Tz 15xx, TD4: VT 605}{et5411.jpg}%
-    {397}{184,4}{7}{28}{4,00}{230}{386}%
-    {KISS 160}{KISS 200}{ICE-T}{ICE 4}{}
-\quartettkarte{G4}{ICE 4.13}{412, Tz 9450ff}{et0412.jpg}%
-    {918}{374,5}{13}{52}{11,55}{265}{736}%
-    {KISS 160}{KISS 200}{ICE-T}{ICE 4}{}
-%%%%%%%%%%%%%%%%%%%%%%%%
+    {397}{184,4}{7}{28}{4,00}{230}{386}{0,97}%
+    {KISS 160}{KISS 200}{ICE-T}{ICE 4}
+\quartettkarte{G4}{ICE 4.13}{412, \small Tz 9450ff}{et0412.jpg}%
+    {918}{374,5}{13}{52}{11,55}{265}{736}{0,80}%
+    {KISS 160}{KISS 200}{ICE-T}{ICE 4}
+% %%%%%%%%%%%%%%%%%%%%%%%%
 \quartettkarte{H1}{ICE 1 LDV}{401,801-804 \small Tz 1xx}{et5401.jpg}%
-    {503}{278,7}{9}{44}{9,60}{280}{627}%
-    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 3MS}{}
+    {503}{278,7}{9}{44}{9,60}{280}{627}{1,25}%
+    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 3MS}
 \quartettkarte{H2}{ICE 2}{402,805-808 {\small Tz 2xx}}{et5402.jpg}%
-    {381}{205,4}{7}{32}{4,80}{280}{412}%
-    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 3MS}{}
+    {381}{205,4}{7}{32}{4,80}{280}{412}{1,08}%
+    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 3MS}
 \quartettkarte{H3}{ICE 3}{403 \small Tz 3xx \tiny 1-System, 406: Tz 46xx 4-System}{et5403.jpg}%
-    {450}{200,8}{8}{32}{8,00}{330}{409}%
-    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 3MS}{}
+    {450}{200,8}{8}{32}{8,00}{330}{409}{0,91}%
+    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 3MS}
 \quartettkarte{H4}{ICE 3 MS}{407 \small Tz 7xx}{et5407.jpg}%
-    {444}{200,7}{8}{32}{8,00}{320}{463}%
-    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 3MS}{}
+    {444}{200,7}{8}{32}{8,00}{320}{463}{1,04}%
+    {ICE 1 LDV}{ICE 2}{ICE 3}{ICE 3MS}
 %%%%%%%%%%%%%%%%%%%%%%%%
 \quartettkarte{}{}{}{fehlt.pdf}%
-    {}{}{}{\phantom{99}}{}{}{}%
+    {}{}{}{\phantom{99}}{}{}{}{\phantom{9},\phantom{99}}%
     {}{}{}{}{}
 % unused:
 %\quartettkarte{}{LINT 81}{VT 0620}{vt0620.jpg}%
