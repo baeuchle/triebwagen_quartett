@@ -18,7 +18,7 @@ empfohlen wird.
 # Lizenz
 
 Dieses Werk und alle darin enthaltenen Dateien und Bilder, die nicht im
-nächsten Abschnitt „Abweichende Lizenzen“ aufgeführt sind, sind unter
+nächsten Abschnitt „Abweichende Lizenzen“ beschrieben sind, sind unter
 einer Creative Commons Lizenz vom Typ Namensnennung - Weitergabe unter
 gleichen Bedingungen 4.0 Deutschland CC BY-SA 4.0 zugänglich. Der
 Volltext dieser Lizenz ist in der Datei LICENSE zu finden.
